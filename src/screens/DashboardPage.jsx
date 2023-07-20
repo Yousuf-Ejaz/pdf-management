@@ -50,9 +50,9 @@ function Dashboard () {
 
 
   return (
-    <div className="bg-green-50 h-screen" >
+    <div className="bg-green-50 h-screen flex flex-col" >
       <NavbarDashboard />
-      <div className="text-center py-10 px-6 sm:px-6 lg:px-8 bg-green-50 h-screen flex gap-4">
+      <div className="text-center py-10 px-6 sm:px-6 lg:px-8 bg-green-50 grow flex gap-4">
         <SidebarDashboard/>
         <div className="bg-white p-3 rounded-lg grow">
 
