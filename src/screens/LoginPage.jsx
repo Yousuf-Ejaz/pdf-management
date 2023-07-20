@@ -1,14 +1,26 @@
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function LoginPage () {
   const [email, setEmail] = useState( "" );
   const [password, setPassword] = useState( "" );
+  const [loading, setLoading] = useState( false );
+ 
+
 
   const navigate = useNavigate();
 
-  const submitHandler = async () => {
+  const submitHandler = async ( e ) => {
+    e.preventDefault();
+   
+    setLoading( true );
+    if ( email === "" || password === "" ) {
+      toast.error( "Please Fill all the Feilds" );
+      setLoading( false );
+      return;
+    }
     try {
       const config = {
         headers: {
@@ -22,42 +34,47 @@ function LoginPage () {
         config
       );
 
+      toast.success( "Login Successfull" );
+      setLoading( false );
       localStorage.setItem( "userInfo", JSON.stringify( data ) );
 
-      navigate( "/chats" );
+      navigate( "/" );
     } catch ( error ) {
-
+      console.error( error );
+      toast.error( "Invalid Credentials" );
+      setLoading( false );
 
     }
   };
   return (
-    <main className="w-full max-w-md mx-auto p-6 h-screen ">
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 ">
-        <div className="p-4 sm:p-7">
+    <main className=" flex justify-center items-center h-screen bg-green-50">
+   
+      <div className=" w-3/5 max-w-sm bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 flex  ">
+        <div className="p-4 sm:p-7 grow">
           <div className="text-center">
             <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
               Sign in
             </h1>
             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              Dont have an account yet? <a
-                className="text-blue-600 decoration-2 hover:underline font-medium"
-                href="../examples/html/signup.html"
+              Dont have an account yet? <Link
+                className="text-green-600 decoration-2 hover:underline font-medium"
+                to="/register"
               >
                 Sign up here
-              </a>
+              </Link>
             </p>
           </div>
           <div className="mt-5">
 
 
             {/* Form */}
-            <form >
+            <form onSubmit={submitHandler}>
               <div className="grid gap-y-4">
                 {/* Form Group */}
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm mb-2 dark:text-white"
+                    className="block text-sm mb-2 "
                   >
                     Email address
                   </label>
@@ -66,7 +83,7 @@ function LoginPage () {
                       type="email"
                       id="email"
                       name="email"
-                      className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                      className="py-3 px-4 block w-full border focus:outline-none border-gray-200 rounded-md text-sm focus:border-green-500 focus:ring-green-500 dark:bg-gray-800 "
                       required=""
                       aria-describedby="email-error"
                       value={email}
@@ -100,7 +117,7 @@ function LoginPage () {
                       Password
                     </label>
                     <a
-                      className="text-sm text-blue-600 decoration-2 hover:underline font-medium"
+                      className="text-sm text-green-600 decoration-2 hover:underline font-medium"
                       href="../examples/html/recover-account.html"
                     >
                       Forgot password?
@@ -111,7 +128,7 @@ function LoginPage () {
                       type="password"
                       id="password"
                       name="password"
-                      className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                      className="py-3 px-4 block w-full border focus:outline-none border-gray-200 rounded-md text-sm focus:border-green-500 focus:ring-green-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
                       required=""
                       aria-describedby="password-error"
                       value={password}
@@ -142,8 +159,8 @@ function LoginPage () {
 
                 <button
                   type="submit"
-                  className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-                  onClick={submitHandler}
+                  className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-green-500 text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+
                 >
                   Sign in
                 </button>
@@ -153,8 +170,9 @@ function LoginPage () {
           </div>
         </div>
       </div>
-    </main>
+ 
 
+    </main>
   );
 }
 export default LoginPage;

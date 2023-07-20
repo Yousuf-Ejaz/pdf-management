@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 
-const PdfRenderer = ({ uploadedFile }) => {
+const PdfRenderer = ({ pdfUrl }) => {
+  console.log(pdfUrl, "pdfUrl")
   const [comments, setComments] = useState([]);
 
   const handleAddComment = (event) => {
@@ -42,8 +43,8 @@ const PdfRenderer = ({ uploadedFile }) => {
   return (
     <div className="pdf-renderer">
       <div className="pdf-viewer">
-       {uploadedFile && (
-          <Document file={uploadedFile}>
+       {pdfUrl && (
+          <Document file={pdfUrl}>
             <Page pageNumber={1} />
           </Document>
         )}
