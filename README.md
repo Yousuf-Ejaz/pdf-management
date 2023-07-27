@@ -66,10 +66,6 @@ Open your browser and visit [http://localhost:5173](http://localhost:5173) to vi
 ![Dashboard](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/a3f313bc-14db-4d28-94b7-036420442903)
 ![PDF Viewer](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/47d35068-e17f-4ebb-bbe0-3c74bab8d4c6)
 ![Login](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/5424a144-e9da-4c36-bae1-9521ecd1ad30)
-
-
-
-
-
+![Register](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/b311dd0d-6f4e-4017-831e-00774aea9231)
 
 Feel free to reach out if you have any questions or suggestions!
