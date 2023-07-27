@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 function Navbar() {
+  useAuth()
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-green-100 border-b-2 border-green-200 text-sm py-3 sm:py-0">
   <nav
@@ -9,7 +11,7 @@ function Navbar() {
   >
     <div className="flex items-center justify-between">
       <a
-        className="flex-none text-xl font-extrabold leading-loose text-green-950"
+        className="flex-none text-xl font-extrabold tracking-wide text-green-950"
         href="#"
         aria-label="Brand"
       >

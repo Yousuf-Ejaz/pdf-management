@@ -4,8 +4,6 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
 
 import "./Sample.css";
-import Sidebar from "./Sidebar";
-import Comments from "./Comments";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.js",
@@ -37,30 +35,20 @@ export default function Sample ( { url, data } ) {
   };
 
   return (
-    <div className="Example w-screen">
-      <header className="flex justify-between items-center">
-        <button onClick={closeShareBar} data={data}>Share</button>
-        <div className="uppercase leading-loose font-bold">PDF Viewer</div>
-        <button onClick={closeComments} data={data} >Comments</button>
-      </header>
-      {showShareBar && <Sidebar closeHandler={closeShareBar} data={data} />}
-      {showComments && <Comments closeHandler={closeComments} data={data} />}
+   
 
-      <div className="Example__container">
-
-        <div className="Example__container__document">
+        <div className="Example__container__document grow">
           <Document
             file={url}
             onLoadSuccess={onDocumentLoadSuccess}
             options={options}
+            className="h-[40rem] overflow-y-scroll "
           >
             {Array.from( new Array( numPages ), ( el, index ) => (
               <Page key={`page_${index + 1}`} pageNumber={index + 1} />
             ) )}
           </Document>
         </div>
-      </div>
-
-    </div>
-  );
+      );
 }
+

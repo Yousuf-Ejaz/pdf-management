@@ -4,13 +4,10 @@ import PdfUploader from "../components/PdfUploader";
 import PDFsvg from "../components/icons/PDFsvg";
 import SendIcon from "../components/icons/SendIcon";
 import { Navigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 function Homepage ( { handleFileUpload } ) {
-  useEffect(() => {
-    if(localStorage.getItem("userInfo") === null){
-     <Navigate to="/login" />
-    }
-  }, []);
+ useAuth()
   return (
     <div className="h-screen flex flex-col ">
       <Navbar />

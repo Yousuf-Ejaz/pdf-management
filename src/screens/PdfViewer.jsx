@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PdfRenderer from "../components/PdfRenderer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import PDFNew from "../components/PDFNew";
 import Sample from "../components/Sample";
+import SharePDF from "../components/SharePDF";
 
 const PdfViewer = () => {
   const params = useParams();
@@ -40,7 +40,8 @@ const PdfViewer = () => {
   return (
     <div className=" bg-gray-100">
 
-      {pdfUrl && <Sample url={pdfUrl} data={data} />}
+      {/* {pdfUrl && <Sample url={pdfUrl} data={data} />} */}
+      {pdfUrl && <SharePDF pdfUrl={pdfUrl} data={data} />}
 
 
 

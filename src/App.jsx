@@ -4,7 +4,7 @@ import LoginPage from "./screens/LoginPage";
 import RegisterPage from "./screens/RegisterPage";
 import DashboardPage from "./screens/DashboardPage";
 import { useState } from "react";
-import PdfRenderer from "./components/PdfRenderer";
+
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import PDFProvider from "./context/store";

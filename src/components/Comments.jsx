@@ -7,6 +7,7 @@ function Comments ( { closeHandler, data } ) {
   const [comments, setcomments] = useState();
 
   useEffect( () => {
+    console.log(data)
     const getComments = async () => {
       try {
         const config = {
@@ -75,9 +76,10 @@ function Comments ( { closeHandler, data } ) {
   return (
     <div
 
-      className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 right-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:left-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700"
+      className="bg-white pt-5 m-2 rounded-sm border-1 border-green-100 "
     >
-      <div className="flex justify-between items-center px-6">
+      <div className="flex justify-between items-center px-6 flex-col gap-2">
+        <div>{data.file.fileName}</div>
         <a
           className="flex-none text-xl font-semibold dark:text-white"
           href="#"
@@ -85,25 +87,7 @@ function Comments ( { closeHandler, data } ) {
         >
           Comments
         </a>
-        <button
-          type="button"
-          className="w-8 h-8 inline-flex justify-center items-center gap-2 rounded-md border border-gray-200 text-gray-600 hover:text-gray-400 transition dark:border-gray-700"
-          data-hs-overlay="#hs-overlay-basic"
-          aria-controls="hs-overlay-basic"
-          aria-label="Toggle navigation"
-          onClick={closeHandler}
-        >
-          <span className="sr-only">Close Sidebar</span>
-          <svg
-            className="w-3 h-3"
-            width={16}
-            height={16}
-            fill="currentColor"
-            viewBox="0 0 16 16"
-          >
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-          </svg>
-        </button>
+        
       </div>
       <nav className="p-6 w-full flex flex-col flex-wrap">
         {comments && comments.map( comment => <div className="border-b border-gray-300 p-2 mb-2" key={comment.commentId} >{comment.authorName}: {comment.commentBody}</div> )}
@@ -113,6 +97,7 @@ function Comments ( { closeHandler, data } ) {
       </nav>
 
     </div>
+    
   );
 }
 export default Comments;

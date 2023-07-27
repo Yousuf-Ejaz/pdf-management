@@ -69,7 +69,7 @@ const PdfUploader = ({onFileUpload}) => {
       />
       <label htmlFor="pdf-input" className="upload-button">
         <div
-          className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3.5 text-center  bg-white shadow-sm text-lg rounded-md text-green-950 font-bold leading-loose  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-800 transition py-4 px-7 cursor-pointer "
+          className="w-full sm:w-auto inline-flex justify-center items-center gap-x-3.5 text-center  bg-white shadow-sm text-lg rounded-md text-green-950 font-bold tracking-wide  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-800 transition py-4 px-7 cursor-pointer "
          
 
         >
