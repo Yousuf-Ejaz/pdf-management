@@ -28,7 +28,8 @@ Users can share files with other authenticated users through generated unique li
 5. **Commenting**
 Users can add and view comments on files.
 
-![Screenshot_2](your_screenshot_link_here)
+![Comments](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/e119bde6-32b2-4d50-a4e1-fae9f1b5ba58)
+
 
 6. **Security and Data Privacy**
 Only authorized users have access to files and comments, and user passwords are securely hashed and stored.
@@ -59,13 +60,16 @@ npm run dev
    
 Open your browser and visit [http://localhost:5173](http://localhost:5173) to view the application.
 
-## Demo
-You can view a live demo of the application [here](your_demo_link_here).
-
-## Documentation
-Find the complete project documentation [here](your_documentation_link_here).
 
 ## Screenshots
+![Homepage](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/b8edbc76-fbff-48e2-8c5e-3bd4e19f1a3d)
+![Dashboard](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/a3f313bc-14db-4d28-94b7-036420442903)
+![PDF Viewer](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/47d35068-e17f-4ebb-bbe0-3c74bab8d4c6)
+![Login](https://github.com/Yousuf-Ejaz/pdf-management/assets/78158232/5424a144-e9da-4c36-bae1-9521ecd1ad30)
+
+
+
+
 
 
 Feel free to reach out if you have any questions or suggestions!
